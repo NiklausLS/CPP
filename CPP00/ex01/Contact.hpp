@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:09:49 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 18:04:03 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/09 18:36:09 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class Contact
     
     public:
         Contact();
-        void getInfo(const std::string& first, const std::string& last, const std::string& nick,
+        void getContactInfo(const std::string& first, const std::string& last, const std::string& nick,
             const std::string& phone, const std::string& secret);
-        void printInfo() const;
+        void printContactInfo() const;
 };
 
 #endif

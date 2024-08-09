@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:10:28 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 17:53:30 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/09 18:57:30 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ class PhoneBook
 {
     private:
        std::array <Contact, 8> contacts;
-       int  i;
+       int  index;
+       int  nbr;
         
     public:
         PhoneBook();
         void addContact();
-        
+        void printContatcs() const;
+        //void searchContact() const; 
 };
 
 #endif
