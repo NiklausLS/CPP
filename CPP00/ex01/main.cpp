@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 22:19:08 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 18:43:07 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/09 21:25:12 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 #include "PhoneBook.hpp"
 
 /* TO DO LIST
- * implémenter deux classes : PhoneBook et Contact
- * ADD / SEARCH
- *
- * 
+ * SEARCH : chercher le contact au bon index
+ * ajouter | et gérer les 10 max en size
  */
 
 
@@ -28,7 +26,7 @@ int main()
     PhoneBook phoneBook;
     std::string input;
     
-    std::cout << "Hellow and welcome dear user :)" << std::endl;
+    std::cout << "Hello and welcome dear user :)" << std::endl;
     std::cout << "  You can type : " <<std::endl;
     std::cout << "      - ADD to add a contact to your list" << std::endl;
     std::cout << "      - SEARCH to look for a existing contact" << std::endl;
@@ -63,7 +61,7 @@ int main()
         else
         {
             std::cout << "Your input is " << input << std::endl;
-            std::cout << "Please enter a VALID command, i litteraly told you wich one are available you donkey" << std::endl;
+            std::cout << "Please enter a VALID command" << std::endl;
         }
     }
     return (0);

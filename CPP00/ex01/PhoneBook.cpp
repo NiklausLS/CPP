@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:45:36 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 18:58:10 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/09 21:23:14 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void    PhoneBook::addContact()
     contacts[index].getContactInfo(first, last, nick, phone, secret);
     index = (index + 1) % 8;
 
-    std::cout << "The contact is added to the phone book" << std::endl;
+    std::cout << "  - " << first << " is added to the phone book" << std::endl;
 
     if (nbr < 8)
         nbr++;
