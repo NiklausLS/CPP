@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 22:19:08 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 21:25:12 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/09 22:22:29 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 /* TO DO LIST
  * SEARCH : chercher le contact au bon index
- * ajouter | et gérer les 10 max en size
  */
 
 
@@ -58,11 +57,11 @@ int main()
             std::cout << "Your input is SEARCH." << std::endl;
             phoneBook.printContatcs();
         }
-        else
+        /*else
         {
             std::cout << "Your input is " << input << std::endl;
             std::cout << "Please enter a VALID command" << std::endl;
-        }
+        }*/
     }
     return (0);
 }

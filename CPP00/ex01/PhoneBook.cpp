@@ -6,14 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:45:36 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 21:23:14 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/09 22:13:05 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <iostream>
-#include <string>
-#include <iomanip>
 
 PhoneBook::PhoneBook() : index(0), nbr(0) {}
 
@@ -47,12 +44,28 @@ void    PhoneBook::addContact()
 
 
 
-void    PhoneBook::printContatcs() const
+/*void    PhoneBook::printContatcs() const
 {
     for (int i = 0; i < 8; ++i)
     {
-        std::cout << "Contact " << i + 1 << ":" << std::endl;
+        std::cout << "\nContact " << i + 1 << " :" << std::endl;
         contacts[i].printContactInfo();
         std::cout << std::endl;
+    }
+}*/
+
+void    PhoneBook::printContatcs() const
+{
+    std::cout << std::setw(10) << "index" << "|";
+    std::cout << std::setw(10) << "first name" << "|";
+    std::cout << std::setw(10) << "last name" << "|";
+    std::cout << std::setw(10) << "nickname" << std::endl;
+
+    for (int i = 0; i < nbr; ++i)
+    {
+        std::cout << std::setw(10) << i + 1 << "|";
+        std::cout << std::setw(10) << contacts[i].getFirstName() << "|";
+        std::cout << std::setw(10) << contacts[i].getLastName() << "|";
+        std::cout << std::setw(10) << contacts[i].getNickName() << std::endl;
     }
 }

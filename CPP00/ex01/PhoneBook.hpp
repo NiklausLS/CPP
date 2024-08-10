@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:10:28 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 18:57:30 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/09 21:45:29 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define PHONEBOOK_HPP
 
 #include <array>
+#include <iostream>
+#include <iomanip>
+#include <string>
 #include "Contact.hpp"
 
 class PhoneBook
