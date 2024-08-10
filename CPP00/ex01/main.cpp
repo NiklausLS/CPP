@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 22:19:08 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 22:22:29 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/10 11:47:34 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 /* TO DO LIST
  * SEARCH : chercher le contact au bon index
+ * couper la taille si elle fait plus de 10 caractères
  */
-
 
 int main()
 {
@@ -55,7 +55,7 @@ int main()
         else if (input == "SEARCH")
         {
             std::cout << "Your input is SEARCH." << std::endl;
-            phoneBook.printContatcs();
+            phoneBook.searchContact();
         }
         /*else
         {

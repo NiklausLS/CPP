@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:10:28 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 21:45:29 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/10 11:53:13 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class PhoneBook
     public:
         PhoneBook();
         void addContact();
-        void printContatcs() const;
-        //void searchContact() const; 
+        void printContacts() const;
+        void searchContact() const; 
 };
 
 #endif

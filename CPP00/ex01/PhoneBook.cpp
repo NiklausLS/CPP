@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:45:36 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 22:13:05 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:36:17 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void    PhoneBook::addContact()
         nbr++;
 }
 
-
-
 /*void    PhoneBook::printContatcs() const
 {
     for (int i = 0; i < 8; ++i)
@@ -54,7 +52,7 @@ void    PhoneBook::addContact()
     }
 }*/
 
-void    PhoneBook::printContatcs() const
+/*void    PhoneBook::printContacts() const
 {
     std::cout << std::setw(10) << "index" << "|";
     std::cout << std::setw(10) << "first name" << "|";
@@ -68,4 +66,42 @@ void    PhoneBook::printContatcs() const
         std::cout << std::setw(10) << contacts[i].getLastName() << "|";
         std::cout << std::setw(10) << contacts[i].getNickName() << std::endl;
     }
-}
+}*/
+
+void    PhoneBook::searchContact() const
+{
+    if (nbr == 0)
+    {
+        std::cout << "The phone book is empty, please use ADD to add a contact" << std::endl;
+        return;
+    }
+
+    std::string input;
+    int index;
+
+    std::cout << "Please enter the index of your contact :" << std::endl;
+    std::getline(std::cin, input);
+
+    for (size_t i = 0; i < input.length(); ++i)
+    {
+        if (!std::isdigit(input[i]))
+        {
+            std::cout << "Your input is invalid. Please enter a number" << std::endl;
+            return;
+        }
+    }
+
+    index = std::atoi(input.c_str());
+    if (index < 1 || index > nbr)
+    {
+        std::cout << "Your index is invalid. Please enter un number between 1 and " << nbr << std::endl;
+        return;
+    }
+
+    std::cout << std::setw(10) << "index" << "|";
+    std::cout << std::setw(10) << "first name" << "|";
+    std::cout << std::setw(10) << "last name" << "|";
+    std::cout << std::setw(10) << "nickname" << std::endl;
+    std::cout << std::setw(10) << index << "|";
+    contacts[index - 1].printContactInfo();
+}   

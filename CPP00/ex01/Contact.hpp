@@ -6,13 +6,17 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:09:49 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 22:00:30 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:28:44 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTATC_HPP
 #define CONTATC_HPP
 
+#include <string>
+#include <array>
+#include <iostream>
+#include <iomanip>
 #include <string>
 
 class Contact

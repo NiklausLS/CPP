@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:45:50 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/09 22:05:20 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:33:00 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,9 @@ void Contact::getContactInfo(const std::string& first, const std::string& last,
 
 void Contact::printContactInfo() const
 {
-    std::cout << "  - First name : " << firstName << std::endl;
-    std::cout << "  - Last name : " << lastName << std::endl;
-    std::cout << "  - Nickname : " << nickName << std::endl;
-    std::cout << "  - Phone number : " << phoneNumber << std::endl;
-    std::cout << "  - Darkest secret : " << darkestSecret << std::endl;
+    std::cout << std::setw(10) << firstName << "|";
+    std::cout << std::setw(10) << lastName << "|";
+    std::cout << std::setw(10) << nickName << std::endl;
 }
 
 std::string Contact::getFirstName() const
@@ -48,3 +46,4 @@ std::string Contact::getNickName() const
 {
     return (nickName);
 }
+
