@@ -6,11 +6,10 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:45:50 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/10 12:33:00 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/10 19:09:44 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Contact.hpp"
 
 Contact::Contact() {}
@@ -32,7 +31,7 @@ void Contact::printContactInfo() const
     std::cout << std::setw(10) << nickName << std::endl;
 }
 
-std::string Contact::getFirstName() const
+/*std::string Contact::getFirstName() const
 {
     return (firstName);
 }
@@ -45,5 +44,22 @@ std::string Contact::getLastName() const
 std::string Contact::getNickName() const
 {
     return (nickName);
-}
+}*/
 
+std::string checkInput(const std::string& str, const std::string& tab)
+{
+    std::string input;
+    bool isValid = false;
+
+    while (!isValid)
+    {
+        std::cout << str;
+        std::getline(std::cin, input);
+
+        if (!input.empty())
+            isValid = true;
+        else
+            std::cout << "ERROR : " << tab << " is empty" << std::endl;
+    }
+    return (input);
+}

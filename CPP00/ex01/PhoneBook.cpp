@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:45:36 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/10 12:36:17 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:55:40 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,8 @@ void    PhoneBook::searchContact() const
     }
 
     std::string input;
-    int index;
-
     std::cout << "Please enter the index of your contact :" << std::endl;
     std::getline(std::cin, input);
-
     for (size_t i = 0; i < input.length(); ++i)
     {
         if (!std::isdigit(input[i]))
@@ -91,6 +88,7 @@ void    PhoneBook::searchContact() const
         }
     }
 
+    int index;
     index = std::atoi(input.c_str());
     if (index < 1 || index > nbr)
     {
