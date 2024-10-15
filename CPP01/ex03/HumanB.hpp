@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 00:01:56 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/15 15:07:35 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/15 14:37:09 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/15 14:46:40 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(const std:: string& type) : type(type)
+class HumanB
 {
-    //std::cout << YELLOW << "CONSTRUCTOR" << RESET <<std::endl;
-    //std::cout << "weapon type = " << type << std::endl;
-}
+    public:
+        HumanB(std::string name);
+        void attack() const;
+        void setWeapon(Weapon& weapon);
 
-Weapon::~Weapon()
-{
-    //std::cout << YELLOW << "DESTRUCTOR" << RESET << std::endl;
-}
-
-const std::string& Weapon::getType() const
-{
-    return (type);
-}
-
-void Weapon::setType(const std::string& newType)
-{
-    type = newType;
-}
+    private:
+        std::string name;
+        Weapon* weapon;
+};

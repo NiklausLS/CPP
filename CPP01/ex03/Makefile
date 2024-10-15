@@ -6,14 +6,14 @@
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/04 12:07:04 by nileempo          #+#    #+#              #
-#    Updated: 2024/10/15 00:25:02 by nileempo         ###   ########.fr        #
+#    Updated: 2024/10/15 14:37:21 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = violence
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRCS = main.cpp Weapon.cpp
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
