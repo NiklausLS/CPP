@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:26:31 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/17 00:41:50 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:31:54 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ class Harl
         void info( void );
         void warning( void );
         void error( void );
+        void karen( void );
+        int  makeLevel(std::string level);
 };
 
 typedef void (Harl::*functionPtr)(void);

@@ -1,54 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 16:26:31 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/17 00:41:50 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/17 13:51:20 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/17 23:18:44 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <string>
 #include <iostream>
-#include <fstream>
 
 const std::string RED = "\033[31m";
 const std::string GREEN = "\033[32m";
 const std::string YELLOW = "\033[33m";
 const std::string RESET = "\033[0m";
 
-enum Level
-{
-    DEBUG,
-    INFO,
-    WARNING,
-    ERROR
-};
-
-class Harl
+class Fixed
 {
     public:
-        Harl();
-        ~Harl();
-        /*void debug( void );
-        void info( void );
-        void warning( void );
-        void error( void );*/
-        void complain( std::string level );
+        Fixed();
+        ~Fixed();
+        Fixed (const Fixed& copy);
+        Fixed& operator=(const Fixed& copy);
+
+        int getRawBits( void ) const;
+        void setRawBits( int const raw );
 
     private:
-        //void complain( std::string level );
-        void debug( void );
-        void info( void );
-        void warning( void );
-        void error( void );
+        int _value;
+        static const int _bits = 8;
 };
-
-typedef void (Harl::*functionPtr)(void);
 
 #endif

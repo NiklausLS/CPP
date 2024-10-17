@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:26:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/17 12:33:26 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:37:51 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Harl::Harl()
 {
-    std::cout << YELLOW << "COSNTRUCTOR" << RESET << std::endl;
+    std::cout << YELLOW << "CONSTRUCTOR" << RESET << std::endl;
 }
 
 Harl::~Harl()
@@ -53,20 +53,61 @@ void Harl::error()
               << std::endl;
 }
 
+void Harl::karen()
+{
+    std::cout << YELLOW << "KAREN" << RESET << std::endl;
+    std::cout << RED << "CALL ME A MANAGER" << std::endl;
+}
+
 void Harl::complain(std::string level)
 {
-    functionPtr tab_ptr[] = {&Harl::debug, &Harl::info,
-                         &Harl::warning, &Harl::error};
+    int karenLevel = makeLevel(level);
 
-    std::string tab_level[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-    for (int i = 0; i < 4; i++)
+    switch (karenLevel)
     {
-        if (tab_level[i] == level)
+        case (DEBUG):
         {
-            (this->*tab_ptr[i])();
-            return ;
+            std::cout << YELLOW << "DEBUG" << std::endl;
+            this->debug();
+            break ;
+        }
+        case (INFO):
+        {
+            std::cout << YELLOW << "INFO" << std::endl;
+            this->info();
+            break ;
+        }
+        case (WARNING):
+        {
+            std::cout << YELLOW << "WARNING" << std::endl;
+            this->warning();   
+            break ;
+        }
+        case (ERROR):
+        {
+            std::cout << YELLOW << "ERROR" << std::endl;
+            this->error();  
+            break ; 
+        }
+        case (-1):
+        {
+            std::cout << YELLOW << "KAREN" << std::endl;
+            this->karen();
+            break ;
         }
     }
-    std::cout << RED << "CALL ME A MANAGER" << std::endl;
+}
+
+int Harl::makeLevel(std::string level)
+{
+    if (level == "DEBUG")
+        return (DEBUG);
+    else if (level == "INFO")
+        return (INFO);
+    else if (level == "WARNING")
+        return (WARNING);
+    else if (level == "ERROR")
+        return (ERROR);
+    else
+        return (-1);
 }
