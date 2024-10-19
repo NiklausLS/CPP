@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:03 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/18 15:15:54 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:59:00 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void    Fixed::setRawBits(int const nbr)
 
 int     Fixed::getRawBits( void ) const
 {
-    std::cout << GREEN << "getRawBits member function called" << RESET << std::endl;
+    //std::cout << GREEN << "getRawBits member function called" << RESET << std::endl;
     //std::cout << _value << std::endl;
     //std::cout << "END getRawBits" << std::endl;
     return (this->_value);
@@ -52,4 +52,62 @@ Fixed& Fixed::operator=(const Fixed& copy)
     std::cout << RED << "Copy assignment operator called" << RESET << std::endl;
     this->_value = copy.getRawBits();
     return (*this);
+}
+
+Fixed::Fixed(const int nbr)
+{
+    std::cout << YELLOW << "Int constructor called" << RESET << std::endl;
+    _value = nbr << _bits;
+}
+
+int Fixed::toInt( void ) const
+{
+    return (_value >> _bits);
+}
+
+Fixed::Fixed(const float nbr)
+{
+    std::cout << YELLOW << "Float constructor called" << RESET << std::endl;
+    _value = roundf(nbr *(1 << _bits));
+}
+
+float   Fixed::toFloat( void ) const
+{
+    return((float)_value / (1 <<_bits));
+}
+
+std::ostream& operator<<(std::ostream& out, const Fixed& nbr)
+{
+    out << nbr.toFloat();
+    return (out);
+}
+
+bool Fixed::operator>(const Fixed& copy) const
+{
+    return (this->_value > copy._value);
+}
+
+bool Fixed::operator<(const Fixed& copy) const
+{
+    return (this->_value < copy._value);
+}
+
+bool Fixed::operator>=(const Fixed& copy) const
+{
+    return (this->_value >= copy._value);
+}
+
+bool Fixed::operator<=(const Fixed& copy) const
+{
+    return (this->_value <= copy._value);
+}
+
+bool Fixed::operator==(const Fixed& copy) const
+{
+    return (this->_value == copy._value);
+}
+
+bool Fixed::operator!=(const Fixed& copy) const
+{
+    return (this->_value != copy._value);
 }

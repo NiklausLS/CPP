@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:43:57 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/18 00:29:17 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:25:39 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,36 @@
 
 int main()
 {
-    Fixed a(0); //0
-    std::cout << "a = " << a.getRawBits() << std::endl;
-    
+    /*Fixed a(0); //0
+    std::cout << "a bits = " << a.getRawBits() << std::endl;
+    std::cout << "a int = " << a.toInt() << std::endl;
+
     Fixed b(1); //256
-    std::cout << "b = " << b.getRawBits() << std::endl;
+    std::cout << "b bits = " << b.getRawBits() << std::endl;
+    std::cout << "b int = " << b.toInt() << std::endl;
 
     Fixed c(-1); //-256
-    std::cout << "c = " << c.getRawBits() << std::endl;
+    std::cout << "c bits = " << c.getRawBits() << std::endl;
+    std::cout << "c int = " << c.toInt() << std::endl;
 
     Fixed d(42); //10752
-    std::cout << "d = " << d.getRawBits() << std::endl;
+    std::cout << "d bits = " << d.getRawBits() << std::endl;
+    std::cout << "d int = " << d.toInt() << std::endl;
 
     Fixed e(-5); //-1280
-    std::cout << "e = " << e.getRawBits() << std::endl;
+    std::cout << "e bits = " << e.getRawBits() << std::endl;
+    std::cout << "e int = " << e.toInt() << std::endl;
+    */
     
-    
-    /*Fixed a;
+    /*Fixed f(0.0f);
+    std::cout << "f bits = " << f.getRawBits() << std::endl;
+    std::cout << "f float = " << f.toFloat() << std::endl;
+
+    Fixed g(1.5f);
+    std::cout << "g bits = " << f.getRawBits() << std::endl;
+    std::cout << "g float = " << f.toFloat() << std::endl;*/
+
+    Fixed a;
     Fixed const b( 10 );
     Fixed const c( 42.42f );
     Fixed const d( b );
@@ -43,6 +56,6 @@ int main()
     std::cout << "a is " << a.toInt() << " as integer" << std::endl;
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;*/
+    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
     return (0);
 }

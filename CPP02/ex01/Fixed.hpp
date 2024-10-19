@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:20 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/18 00:11:43 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:18:21 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ class Fixed
 
         Fixed(const int nbr);
         Fixed(const float nbr);
-        float toFloat( void ) const;
         int toInt( void ) const;
+        float toFloat( void ) const;
     private:
         int _value;
         static const int _bits = 8;
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& nbr);
 
 #endif

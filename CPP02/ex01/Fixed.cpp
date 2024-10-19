@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:03 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/18 00:29:24 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:24:56 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,24 @@ Fixed::Fixed(const int nbr)
     _value = nbr << _bits;
 }
 
-/*Fixed::Fixed(const float nbr)
+int Fixed::toInt( void ) const
+{
+    return (_value >> _bits);
+}
+
+Fixed::Fixed(const float nbr)
 {
     std::cout << YELLOW << "Float constructor called" << RESET << std::endl;
+    _value = roundf(nbr *(1 << _bits));
+}
 
-}*/
+float   Fixed::toFloat( void ) const
+{
+    return((float)_value / (1 <<_bits));
+}
+
+std::ostream& operator<<(std::ostream& out, const Fixed& nbr)
+{
+    out << nbr.toFloat();
+    return (out);
+}
