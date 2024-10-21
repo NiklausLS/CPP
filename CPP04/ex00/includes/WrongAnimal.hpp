@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 16:47:26 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/19 19:39:33 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/22 00:50:31 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/22 00:55:45 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
 
-class ScavTrap : public ClapTrap
+class WrongAnimal
 {
     public:
-        ScavTrap();
-        ~ScavTrap();
-        ScavTrap(const std::string& name);
-        void guardGate();
-
-    private:
-
+        WrongAnimal();
+        WrongAnimal(const WrongAnimal &copy);
+        ~WrongAnimal();
+        
+        std::string getType() const;
+        void makeSound() const;
+    
+    protected:
+        std::string type;
 };
 
 #endif

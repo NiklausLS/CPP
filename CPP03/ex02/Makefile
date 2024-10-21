@@ -6,14 +6,14 @@
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/04 12:07:04 by nileempo          #+#    #+#              #
-#    Updated: 2024/10/19 19:35:16 by nileempo         ###   ########.fr        #
+#    Updated: 2024/10/19 19:47:22 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavtrap
+NAME = fragtrap
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS = main.cpp ClapTrap.cpp FragTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

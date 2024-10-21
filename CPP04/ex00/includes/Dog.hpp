@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 16:47:26 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/19 19:39:33 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/21 15:48:10 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/22 01:13:18 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
+#include "Animal.hpp"
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+class Dog : public Animal
 {
     public:
-        ScavTrap();
-        ~ScavTrap();
-        ScavTrap(const std::string& name);
-        void guardGate();
-
-    private:
-
+        Dog();
+        Dog(const Dog& copy);
+        ~Dog();
+        
+        void makeSound() const;
 };
 
 #endif

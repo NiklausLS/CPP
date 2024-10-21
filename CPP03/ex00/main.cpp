@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:37:30 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/19 16:39:11 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/20 07:31:10 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,19 @@ int main()
 
     nico.attack("kevin");
     nico.print_info();
-    nico.takeDamage(10);
+    //nico.takeDamage(10);
     nico.print_info();
     nico.beRepaired(3);
+    nico.print_info();
+
+    /*for (int i = 0; i < 11; i++)
+    {
+        nico.attack("norminette for the " + std::to_string(i + 1) + " time");
+    }*/
+    for (int i = 0; i < 11; i++)
+    {
+        nico.beRepaired(1);
+    }
     nico.print_info();
     return (0);
 }

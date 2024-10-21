@@ -6,14 +6,14 @@
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/04 12:07:04 by nileempo          #+#    #+#              #
-#    Updated: 2024/10/19 19:35:16 by nileempo         ###   ########.fr        #
+#    Updated: 2024/10/22 01:35:52 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavtrap
+NAME = animal
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

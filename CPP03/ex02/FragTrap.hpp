@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 16:47:26 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/19 19:39:33 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/19 19:36:34 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/20 06:51:25 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
     public:
-        ScavTrap();
-        ~ScavTrap();
-        ScavTrap(const std::string& name);
-        void guardGate();
+        FragTrap(const std::string& name);
+        ~FragTrap();
+
+        void highFivesGuys();
 
     private:
-
 };
 
 #endif

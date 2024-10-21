@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:37:48 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/19 16:29:14 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/20 07:20:32 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class ClapTrap
         int _hitPoints;
         int _energyPoints;
         int _attackDamage;
+        int _startHitPoints;
 };
 
 #endif
