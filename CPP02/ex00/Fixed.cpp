@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:03 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/18 15:15:54 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:59:28 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,13 @@ Fixed::~Fixed()
 
 Fixed::Fixed(const Fixed& copy)
 {
-    std::cout << RED << "Copy constructor called "<< RESET << std::endl;
-    this->_value = copy.getRawBits();
-    //std::cout << copy << std::endl;
+    std::cout << RED << "Copy constructor called"<< RESET << std::endl;
+    *this = copy;
 }
 
 void    Fixed::setRawBits(int const nbr)
 {
-    std::cout << "START setRawBits" << std::endl;
+    //std::cout << "START setRawBits" << std::endl;
     this->_value = nbr;
     //std::cout << "nbr = " << nbr << std::endl;
     //std::cout << "END setRawBits" << std::endl;
@@ -42,14 +41,13 @@ void    Fixed::setRawBits(int const nbr)
 int     Fixed::getRawBits( void ) const
 {
     std::cout << GREEN << "getRawBits member function called" << RESET << std::endl;
-    //std::cout << _value << std::endl;
-    //std::cout << "END getRawBits" << std::endl;
     return (this->_value);
 }
 
 Fixed& Fixed::operator=(const Fixed& copy)
 {
     std::cout << RED << "Copy assignment operator called" << RESET << std::endl;
-    this->_value = copy.getRawBits();
+    if(this != &copy)
+        this->_value = copy.getRawBits();
     return (*this);
 }

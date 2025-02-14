@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:43:57 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/18 00:03:14 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:49:54 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int main()
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;
     
-    Fixed d;
+    /*Fixed d;
     d.setRawBits(-666);
-    std::cout << d.getRawBits() << std::endl;
+    std::cout << d.getRawBits() << std::endl;*/
     return (0);
 }
