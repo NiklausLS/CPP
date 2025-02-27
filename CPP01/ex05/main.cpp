@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:27:55 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/17 12:39:13 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:55:31 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,21 @@ int main()
     harl.warning();
     harl.error();*/
 
-    harl.complain("DEBUG");
-    //harl.complain("INFO");
-    //harl.complain("WARNING");
-    //harl.complain("ERROR");
-    //harl.complain("KAREN");
+    std::cout << "-------" << std::endl;
+    //harl.complain("debug");
+    //harl.complain("DEBUG");
+    harl.complain("   ");
+
+    std::cout << "-------" << std::endl;
+    harl.complain("INFO");
+
+    std::cout << "-------" << std::endl;
+    harl.complain("WARNING");
+
+    std::cout << "-------" << std::endl;
+    harl.complain("ERROR");
+    
+    std::cout << "-------" << std::endl;
+    harl.complain("KAREN");
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:45:36 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/10 12:55:40 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/25 18:35:16 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,25 @@ PhoneBook::PhoneBook() : index(0), nbr(0) {}
 
 void    PhoneBook::addContact()
 {
-    std::string first, last, nick, phone, secret;
+    std::string first = checkInput("Please enter the contact first name : ", "First name");
+    /*std::cout << "Please enter the contact first name : ";
+    std::getline(std::cin >>std::ws, first);*/
+  
+    std::string last = checkInput("Please enter the contact last name : ", "Last name");
+    //std::cout << "Please enter the contact last name : ";
+    //std::getline(std::cin >> std::ws, last);
 
-    std::cout << "Please enter the contact first name : ";
-    std::getline(std::cin >>std::ws, first);
+    std::string nick = checkInput("Please enter the contact nickname : ", "Nickname");
+    //std::cout << "Please enter the contact nickname : ";
+    //std::getline(std::cin>> std::ws, nick);
 
-    std::cout << "Please enter the contact last name : ";
-    std::getline(std::cin >> std::ws, last);
+    std::string phone = checkInput("Please enter the contact phone number : ", "Phone number");
+    //std::cout << "Please enter the contact phone number : ";
+    //std::getline(std::cin >> std::ws, phone);
 
-    std::cout << "Please enter the contact nickname : ";
-    std::getline(std::cin>> std::ws, nick);
-
-    std::cout << "Please enter the contact phone number : ";
-    std::getline(std::cin >> std::ws, phone);
-
-    std::cout << "Please enter the contact darkest secret : ";
-    std::getline(std::cin >> std::ws, secret);
+    std::string secret = checkInput("Please enter the contact darkest secret : ", "Darkest secret");
+    //std::cout << "Please enter the contact darkest secret : ";
+    //std::getline(std::cin >> std::ws, secret);
 
     contacts[index].getContactInfo(first, last, nick, phone, secret);
     index = (index + 1) % 8;
@@ -83,7 +86,7 @@ void    PhoneBook::searchContact() const
     {
         if (!std::isdigit(input[i]))
         {
-            std::cout << "Your input is invalid. Please enter a number" << std::endl;
+            std::cout << RED << "Your input is invalid. Please enter a number" << RESET << std::endl;
             return;
         }
     }
@@ -92,7 +95,7 @@ void    PhoneBook::searchContact() const
     index = std::atoi(input.c_str());
     if (index < 1 || index > nbr)
     {
-        std::cout << "Your index is invalid. Please enter un number between 1 and " << nbr << std::endl;
+        std::cout << RED << "Your index is invalid. Please enter un number between 1 and " << nbr << RESET << std::endl;
         return;
     }
 
@@ -102,4 +105,22 @@ void    PhoneBook::searchContact() const
     std::cout << std::setw(10) << "nickname" << std::endl;
     std::cout << std::setw(10) << index << "|";
     contacts[index - 1].printContactInfo();
-}   
+}
+
+std::string PhoneBook::checkInput(const std::string& str, const std::string& tab)
+{
+    std::string input;
+    bool isValid = false;
+
+    while (!isValid)
+    {
+        std::cout << str;
+        std::getline(std::cin, input);
+
+        if (!input.empty())
+            isValid = true;
+        else
+            std::cout << RED << "ERROR : " << tab << " is empty" << RESET << std::endl;
+    }
+    return (input);
+}

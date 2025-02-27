@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 22:47:38 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/22 23:03:49 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/24 13:08:31 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/25 18:11:21 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
+
+#include <string>
+#include <iostream>
+#include <array>
+#include <iomanip>
+#include "AMateria.hpp"
 
 const std::string RED = "\033[31m";
 const std::string GREEN = "\033[32m";
 const std::string YELLOW = "\033[33m";
+const std::string BLUE = "\033[34m";
+const std::string PINK = "\033[35m";
 const std::string RESET = "\033[0m";
 
-Zombie::Zombie()
+class ICharacter
 {
-    //std::cout << YELLOW <<"CONSTRUCTOR" << RESET <<std::endl;
-}
+    public:
+        virtual ~ICharacter() {}
+        virtual std::string const & getName() const = 0;
+        //virtual void equip(AMateria* m) = 0;
+        //virtual void unequip(int idx) = 0;
+        //virtual void use(int idx, ICharacter& target) = 0;
+};
 
-Zombie::~Zombie()
-{
-    //std::cout << YELLOW << "DESTRUCTOR" << RESET << std::endl;
-    std::cout << RED << _name << RESET << " has returned to the grave" << std::endl;
-}
-
-void    Zombie::announce() const
-{
-    std::cout << _name << ": BraiiiiiiinnnzzzzZ..." << std::endl;
-}
-
-void    Zombie::setName(std::string name)
-{
-    _name = name;
-}
+#endif

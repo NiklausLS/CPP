@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:45:50 by nileempo          #+#    #+#             */
-/*   Updated: 2024/08/10 19:09:44 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/25 18:12:42 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ std::string Contact::getNickName() const
     return (nickName);
 }*/
 
-std::string checkInput(const std::string& str, const std::string& tab)
+std::string Contact::checkInput(const std::string& str, const std::string& tab)
 {
     std::string input;
     bool isValid = false;

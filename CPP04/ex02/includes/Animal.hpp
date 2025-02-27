@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 22:47:38 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/22 23:03:49 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/21 15:28:41 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/24 11:54:00 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
+
+#include <string>
+#include <iostream>
+#include <array>
+#include <iomanip>
 
 const std::string RED = "\033[31m";
 const std::string GREEN = "\033[32m";
 const std::string YELLOW = "\033[33m";
+const std::string BLUE = "\033[34m";
+const std::string PINK = "\033[35m";
 const std::string RESET = "\033[0m";
 
-Zombie::Zombie()
+class Animal
 {
-    //std::cout << YELLOW <<"CONSTRUCTOR" << RESET <<std::endl;
-}
+    public:
+        Animal();
+        Animal(const Animal& copy);
+        virtual ~Animal();
 
-Zombie::~Zombie()
-{
-    //std::cout << YELLOW << "DESTRUCTOR" << RESET << std::endl;
-    std::cout << RED << _name << RESET << " has returned to the grave" << std::endl;
-}
+        std::string getType() const;
+        virtual void makeSound() const = 0;
 
-void    Zombie::announce() const
-{
-    std::cout << _name << ": BraiiiiiiinnnzzzzZ..." << std::endl;
-}
+    protected:
+        std::string type;
+};
 
-void    Zombie::setName(std::string name)
-{
-    _name = name;
-}
+#endif

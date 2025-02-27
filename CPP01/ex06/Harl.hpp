@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:26:31 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/17 13:31:54 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:01:30 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ const std::string RESET = "\033[0m";
 
 enum Level
 {
-    DEBUG,
+    DEBUG = 0,
     INFO,
     WARNING,
     ERROR
@@ -35,14 +35,9 @@ class Harl
     public:
         Harl();
         ~Harl();
-        /*void debug( void );
-        void info( void );
-        void warning( void );
-        void error( void );*/
         void complain( std::string level );
 
     private:
-        //void complain( std::string level );
         void debug( void );
         void info( void );
         void warning( void );
@@ -50,7 +45,5 @@ class Harl
         void karen( void );
         int  makeLevel(std::string level);
 };
-
-typedef void (Harl::*functionPtr)(void);
 
 #endif

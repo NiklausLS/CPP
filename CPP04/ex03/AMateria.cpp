@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 16:27:55 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/27 23:04:29 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/24 12:13:26 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/24 13:06:37 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "./includes/AMateria.hpp"
 
-int main(int argc, char **argv)
+/*AMateria::AMateria(std::string const & type) : type(type)
 {
-    if (argc != 2)
-    {
-        std::cerr << "Argument number is not valid" << std::endl;
-        return (1);
-    }
+    std::cout << YELLOW << "AMATERIA CONSTRUCTOR" << RESET 
+              << GREEN <<  type << RESET << std::endl;
+}*/
 
-    Harl harl;
-    std::string level = argv[1];
-    harl.complain(level);
-    return (0);
-}

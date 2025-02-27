@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:26:31 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/17 00:41:50 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:47:37 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,9 @@ class Harl
     public:
         Harl();
         ~Harl();
-        /*void debug( void );
-        void info( void );
-        void warning( void );
-        void error( void );*/
         void complain( std::string level );
 
     private:
-        //void complain( std::string level );
         void debug( void );
         void info( void );
         void warning( void );

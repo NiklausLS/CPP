@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 22:47:38 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/22 23:03:49 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/24 12:15:02 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/24 13:06:30 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
+
+#include <string>
+#include <iostream>
+#include <array>
+#include <iomanip>
 
 const std::string RED = "\033[31m";
 const std::string GREEN = "\033[32m";
 const std::string YELLOW = "\033[33m";
+const std::string BLUE = "\033[34m";
+const std::string PINK = "\033[35m";
 const std::string RESET = "\033[0m";
 
-Zombie::Zombie()
+class AMateria
 {
-    //std::cout << YELLOW <<"CONSTRUCTOR" << RESET <<std::endl;
-}
+    protected:
 
-Zombie::~Zombie()
-{
-    //std::cout << YELLOW << "DESTRUCTOR" << RESET << std::endl;
-    std::cout << RED << _name << RESET << " has returned to the grave" << std::endl;
-}
+    public:
+       // AMateria(std::string const & type);
+       // virtual ~AMateria();
+        
+        //std::string const & getType() const; //Returns the materia type
+        //virtual AMateria* clone() const = 0;
+        //virtual void use(ICharacter& target);
 
-void    Zombie::announce() const
-{
-    std::cout << _name << ": BraiiiiiiinnnzzzzZ..." << std::endl;
-}
+};
 
-void    Zombie::setName(std::string name)
-{
-    _name = name;
-}
+#endif

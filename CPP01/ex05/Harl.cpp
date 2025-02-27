@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 16:26:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/17 12:33:26 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:57:37 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Harl::Harl()
 {
-    std::cout << YELLOW << "COSNTRUCTOR" << RESET << std::endl;
+    std::cout << YELLOW << "CONSTRUCTOR" << RESET << std::endl;
 }
 
 Harl::~Harl()
@@ -60,6 +60,11 @@ void Harl::complain(std::string level)
 
     std::string tab_level[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
+    /*if (level.empty())
+    {
+        std::cout << RED << "ERROR: level is empty" << RESET << std::endl;
+        return ;
+    }*/
     for (int i = 0; i < 4; i++)
     {
         if (tab_level[i] == level)
@@ -68,5 +73,5 @@ void Harl::complain(std::string level)
             return ;
         }
     }
-    std::cout << RED << "CALL ME A MANAGER" << std::endl;
+    std::cout << RED << "CALL ME A MANAGER" << RESET << std::endl;
 }

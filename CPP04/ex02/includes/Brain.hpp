@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 15:13:45 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/15 15:54:49 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/22 01:45:17 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/24 09:45:43 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-# define SED_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include <string>
-#include <iostream>
-#include <fstream>
-#include "check.hpp"
+#include "Animal.hpp"
 
-const std::string RED = "\033[31m";
-const std::string GREEN = "\033[32m";
-const std::string YELLOW = "\033[33m";
-const std::string RESET = "\033[0m";
+class Brain
+{
+    public:
+        Brain();
+        ~Brain();
+        Brain(const Brain& copy);
+
+        Brain& operator=(const Brain& copy);
+        std::string getIdeas(int i) const;
+        void setIdeas(int i, const std::string& ideas);
+
+    private:
+        std::string ideas[100];
+
+};
 
 #endif

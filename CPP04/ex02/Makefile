@@ -6,14 +6,14 @@
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/04 12:07:04 by nileempo          #+#    #+#              #
-#    Updated: 2025/02/27 22:17:04 by nileempo         ###   ########.fr        #
+#    Updated: 2024/10/24 12:00:21 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = sed
+NAME = abstract
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRCS = main.cpp check.cpp
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

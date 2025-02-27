@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:27:02 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/24 11:56:33 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:59:52 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
     //Brain brain;
     //brain.
 
-    std::cout << "-- TEST DOG --" << std::endl;
+    /*std::cout << "-- TEST DOG --" << std::endl;
     Dog dog;
     dog.makeSound();
     dog.beGood();
@@ -60,7 +60,7 @@ int main()
     Cat cat2;
     cat2 = cat;
     cat2.makeSound();
-    cat2.beBad();
+    cat2.beBad();*/
 
     std::cout << "\n-- TEST ANIMALS --" << std::endl;
     Animal* animals[10];
