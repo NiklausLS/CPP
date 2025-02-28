@@ -6,14 +6,14 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 14:36:54 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/15 15:06:09 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/28 12:31:06 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string name)
-    : name(name), weapon(nullptr)
+    : name(name), weapon(NULL)
 {
     //std::cout << "HumanB" << std::endl;
 }
@@ -28,7 +28,7 @@ void HumanB::setWeapon(Weapon& weapon)
 
 void HumanB::attack() const
 {
-    if (this->weapon)
+    if (this->weapon && !this->weapon->getType().empty())
     {
         std::cout << this->name << " attacks with their "
                   << GREEN << this->weapon->getType() 
