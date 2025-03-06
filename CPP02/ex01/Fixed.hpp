@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:20 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/18 15:18:21 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:14:30 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <cmath>
 
 const std::string RED = "\033[31m";
 const std::string GREEN = "\033[32m";

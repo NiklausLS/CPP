@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:03 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/14 18:23:26 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:21:20 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Fixed::Fixed(const Fixed& copy)
 
 void    Fixed::setRawBits(int const nbr)
 {
-    std::cout << "START setRawBits" << std::endl;
+    //std::cout << "START setRawBits" << std::endl;
     this->_value = nbr;
     //std::cout << "nbr = " << nbr << std::endl;
     //std::cout << "END setRawBits" << std::endl;
@@ -69,7 +69,7 @@ int Fixed::toInt( void ) const
 Fixed::Fixed(const float nbr)
 {
     std::cout << YELLOW << "Float constructor called" << RESET << std::endl;
-    _value = roundf(nbr *(1 << _bits));
+    this->_value = (int)roundf(nbr * (1 << _bits));
 }
 
 float   Fixed::toFloat( void ) const

@@ -6,16 +6,16 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:03 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/14 17:59:28 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:20:42 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed() : _value(0)
 {
     std::cout << YELLOW << "Default constructor called" << RESET << std::endl;
-    _value = 0;
+    //_value = 0;
     //std::cout << "value = " << _value << std::endl;
 }
 
@@ -24,10 +24,9 @@ Fixed::~Fixed()
     std::cout << YELLOW << "Destructor called" << RESET << std::endl;
 }
 
-Fixed::Fixed(const Fixed& copy)
+Fixed::Fixed(const Fixed& copy) : _value(copy._value)
 {
     std::cout << RED << "Copy constructor called"<< RESET << std::endl;
-    *this = copy;
 }
 
 void    Fixed::setRawBits(int const nbr)

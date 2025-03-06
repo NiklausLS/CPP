@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:03 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/19 15:26:37 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:12:12 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ Fixed Fixed::operator/(const Fixed& copy) const
         return (Fixed(0));
     }
     Fixed nbr;
-    nbr.setRawBits(this->_value / copy.getRawBits());
+    nbr.setRawBits((this->_value << _bits) / copy.getRawBits());
     return (nbr);
 }
 

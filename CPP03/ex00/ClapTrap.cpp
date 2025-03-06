@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:37:59 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/20 07:37:39 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/02 21:17:22 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,24 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+    int checkHitPoints;
+
+    
     if (_energyPoints > 0 && _hitPoints > 0)
     {
-        int checkHitPoints = _hitPoints + amount;
+        checkHitPoints = _hitPoints + amount;
         if (checkHitPoints > _startHitPoints)
         {
             checkHitPoints = _startHitPoints;
-            std::cout << "Life is full. You just waisted energy." << std::endl;
+            std::cout << GREEN << _name << RESET << " life is already full." << std::endl;
         }
         else
-            std::cout << GREEN <<_name << RESET <<" repairs himself of " << 
-           YELLOW << amount << RESET << " points of damage !" << std::endl;
-        _energyPoints -= 1;
-        _hitPoints = checkHitPoints;
+        {
+            std::cout << GREEN << _name << RESET <<" repairs himself of " << 
+            YELLOW << amount << RESET << " points of damage !" << std::endl;
+            _energyPoints -= 1;
+            _hitPoints = checkHitPoints;
+        }
     }
     else if (_energyPoints <= 0)
     {
