@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:51:03 by nileempo          #+#    #+#             */
-/*   Updated: 2025/03/04 18:21:20 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:00:18 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ int     Fixed::getRawBits( void ) const
 Fixed& Fixed::operator=(const Fixed& copy)
 {
     std::cout << RED << "Copy assignment operator called" << RESET << std::endl;
-    if (this != &copy)
-        this->_value = copy.getRawBits();
+    _value = copy.getRawBits();
     return (*this);
 }
 

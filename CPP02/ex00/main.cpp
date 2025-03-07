@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:43:57 by nileempo          #+#    #+#             */
-/*   Updated: 2025/03/04 17:37:34 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/06 19:31:14 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    Fixed a;
+    /*Fixed a;
 
     std::cout << "BEFORE a = " << a.getRawBits() << std::endl;
     a.setRawBits(1);
@@ -26,21 +26,21 @@ int main()
     Fixed c;
     std::cout << "BEFORE c = " << c.getRawBits() << std::endl;
     c = b;
-    std::cout << "AFTER c = " << c.getRawBits() << std::endl;
+    std::cout << "AFTER c = " << c.getRawBits() << std::endl;*/
 
     /*a.setRawBits(-666);
     b.setRawBits(42);
     std::cout << "a = " << a.getRawBits() << std::endl;
     std::cout << "b = " << b.getRawBits() << std::endl;*/
     
-    /*Fixed a;
+    Fixed a;
     Fixed b( a );
     Fixed c;
 
     c = b;
-    std::cout << "a = " << a.getRawBits() << std::endl;
-    std::cout << "b = " << b.getRawBits() << std::endl;
-    std::cout << "c = " << c.getRawBits() << std::endl;*/
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
 
     return (0);
 }

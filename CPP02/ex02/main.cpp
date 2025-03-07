@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:43:57 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/19 15:29:10 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:03:07 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int main()
     std::cout << b << std::endl;
     std::cout << Fixed::max( a, b ) << std::endl;
     
-    /*Fixed zero(0);
+    Fixed zero(0);
     Fixed e(42);
     Fixed mult = e / zero;
-    std::cout << "42 / 0 = " << mult << std::endl;*/
+    std::cout << "42 / 0 = " << mult << std::endl;
     return (0);
 }
