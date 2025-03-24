@@ -2,6 +2,7 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <iomanip>
 
 const std::string RED = "\033[31m";
 const std::string GREEN = "\033[32m";
@@ -19,13 +20,16 @@ class ScalarConverter
         ScalarConverter &operator=(ScalarConverter const &);
 
         static int checkChar(const std::string &str);
-        static void convertChar(const std::string &str);
+        static char convertChar(const std::string &str);
 
         static int checkInt(const std::string &str);
-        static void convertInt(const std::string &str);
+        static int convertInt(const std::string &str);
 
         static int checkFloat(const std::string &str);
-        static void convertFloat(const std::string &str);
+        static float convertFloat(const std::string &str);
+
+        static int checkDouble(const std::string &str);
+        static double convertDouble(const std::string &str);
 
     public:
         static void convert(const std::string &str);

@@ -25,9 +25,17 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy)
 
 void ScalarConverter::convert(const std::string &str)
 {
-    convertChar(str);
-    convertInt(str);
-    convertFloat(str);
+    char convChar = convertChar(str);
+    //std::cout << "convChar = " << convChar << std::endl;
+
+    int convInt = convertInt(str);
+    //std::cout << "convInt = " << convInt << std::endl;
+
+    float convFloat = convertFloat(str);
+    //std::cout << "convFloat = " << convFloat << std::endl;
+
+    double convDouble = convertDouble(str);
+    //std::cout << "convDouble = " << convDouble << std::endl;
 }
 
 int ScalarConverter::checkChar(const std::string &str)
@@ -44,93 +52,103 @@ int ScalarConverter::checkChar(const std::string &str)
     return (0);
 }
 
-void ScalarConverter::convertChar(const std::string &str)
+char ScalarConverter::convertChar(const std::string &str)
 {
     int check = checkChar(str);
+    char c = str[0];
     //std::cout << "check = " << check << std::endl;
+    
     if (check == 0)
-        std::cout << GREEN << "char: '" << str[0] << "'" << RESET << std::endl;
+        std::cout << GREEN << "char: '" << c << "'" << RESET << std::endl;
     else if (check == 1)
         std::cout << RED << "char: impossible" << RESET << std::endl;
     else if (check == 2 || check == 3)
         std::cout << RED << "char: Non displayable" << RESET << std::endl;
+    return (c);
 }
 
 int ScalarConverter::checkInt(const std::string &str)
 {
-    //std::cout << PINK << "START CHECKINT" << RESET << std::endl;
-    //std::cout << "argv[1] = " << str << std::endl;
     size_t i = 0;
-    
-    if (str.empty())
-        return (1);
-    while (str[i] == '-' || str[i] == '+')
+
+    if (str[i] == '+' || str[i] == '-')
         i++;
-    if (i > 1)
-        return (1);
-    if (i == str.length())
-        return (1);
     while (i < str.length())
     {
         if (!std::isdigit(str[i]))
-            return (2);
+            return (1);
         i++;
-    }
+    } 
     return (0);
 }
-void  ScalarConverter::convertInt(const std::string &str)
+
+int  ScalarConverter::convertInt(const std::string &str)
 {
     int check = checkInt(str);
-    //std::cout << "check = " << check << std::endl;
-
-    if (check != 0)
-    {
-        std::cout << RED << "int: impossible" << RESET << std::endl;
-        return ;
-    }
+    int res = std::atoi(str.c_str());
     
-    int value = std::atoi(str.c_str());
-    std::cout << GREEN << "int: " << value << RESET << std::endl;
+    if (check == 0)
+        std::cout << GREEN << "int: " << res << RESET << std::endl;
+    else if (check == 1)
+        std::cout << RED << "int: impossible" << std::endl;
+    return (res);
 }
 
 int ScalarConverter::checkFloat(const std::string &str)
 {
-    std::cout << PINK << "START CHECKFLOAT" << RESET << std::endl;
-    std::cout << "argv[1] = " << str << std::endl;
-
     size_t i = 0;
-    int    int_ok = 0;
 
-    if (str.empty())
-        return (1);
-    if (str.length() < 2)
-        return (2);
-    if (str[str.length() - 1] == 'f')
+    if (str[i] == '+' || str[i] == '-')
+        i++;   
+    while (i < str.length())
     {
-        std::string nbr = str.substr(0, str.length() - 1);
-        std::cout << "checkF = " << nbr << std::endl;
-        if (checkInt(nbr) == 0)
-            int_ok = 1;
-        else
+        if (!std::isdigit(str[i]))
             return (1);
+        i++;
     }
     return (0);
 }
 
-void ScalarConverter::convertFloat(const std::string &str)
+float ScalarConverter::convertFloat(const std::string &str)
 {
     int check = checkFloat(str);
-    std::cout << "check = " << check << std::endl;
+    float res = std::atof(str.c_str());
+
+    if (check == 0)
+        std::cout << GREEN << "float: " << res << "f" << std::endl;
+    else if (check == 1)
+    {
+        if ((check = checkChar(str)) == 0)
+            std::cout << RED << "float: impossible"<< RESET << std::endl;
+        else
+            std::cout << RED << "float: " << res << "f" << RESET << std::endl;
+    }
+    return (res);
+}
+
+int ScalarConverter::checkDouble(const std::string &str)
+{
+    size_t i = 0;
+
+    if (str[i] == '+' || str[i] == '-')
+        i++;   
+    while (i < str.length())
+    {
+        if (!std::isdigit(str[i]))
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
+double ScalarConverter::convertDouble(const std::string &str)
+{
+    int check = checkDouble(str);
+    double res = std::atof(str.c_str());
     
     if (check == 0)
-        std::cout << GREEN << "float: "  << str << "f" << RESET << std::endl;
-    else if (check == 2)
-    {
-        if (str[str.length() - 1] == 'f')
-            std::cout << GREEN << "float: "  << str << RESET << std::endl;
-        else
-            std::cout << GREEN << "float: "  << str << "f" << RESET << std::endl;
-    }
-    else if (check == 1)
-        std::cout << RED << "float: impossible" << RESET << std::endl;
+        std::cout << GREEN << "double: " << res  << ".0" << std::endl;
+    else
+        std::cout << RED << "double: impossible" << RESET << std::endl;
+    return (res);
 }
