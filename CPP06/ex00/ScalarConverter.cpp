@@ -122,12 +122,15 @@ void ScalarConverter::convertFloat(const std::string &str)
     int check = checkFloat(str);
     std::cout << "check = " << check << std::endl;
     
-    if (check == 0 || check == 2)
+    if (check == 0)
+        std::cout << GREEN << "float: "  << str << "f" << RESET << std::endl;
+    else if (check == 2)
     {
-        std::string checkF = str.substr(0, str.length() - 1);
-        float value = std::atof(checkF.c_str());
-        std::cout << GREEN << "float: "  << value << "f" << RESET << std::endl;
-        return ;
+        if (str[str.length() - 1] == 'f')
+            std::cout << GREEN << "float: "  << str << RESET << std::endl;
+        else
+            std::cout << GREEN << "float: "  << str << "f" << RESET << std::endl;
     }
-    std::cout << RED << "float: impossible" << RESET << std::endl;
+    else if (check == 1)
+        std::cout << RED << "float: impossible" << RESET << std::endl;
 }
