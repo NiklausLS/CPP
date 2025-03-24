@@ -25,6 +25,7 @@ class ScalarConverter
         static void convertInt(const std::string &str);
 
         static int checkFloat(const std::string &str);
+        static void convertFloat(const std::string &str);
 
     public:
         static void convert(const std::string &str);
