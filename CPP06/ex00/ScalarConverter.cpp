@@ -1,154 +1,203 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter()
-{
-    std::cout << YELLOW << "Scalar constructor" << RESET << std::endl;
+ScalarConverter::ScalarConverter() {}
+ScalarConverter::~ScalarConverter() {}
+ScalarConverter::ScalarConverter(const ScalarConverter &copy) { (void)copy; }
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy) 
+{ 
+    (void)copy; 
+    return (*this); 
 }
 
-ScalarConverter::~ScalarConverter()
+CheckType ScalarConverter::detectType(const std::string &str)
 {
-    std::cout << YELLOW << "Scalar destructor" << RESET << std::endl;
+    if (str.empty())
+        return INVALID;
+    
+    if (str.length() == 1 && !std::isdigit(str[0]))
+        return (CHAR);
+    
+    if (str == "-inff" || str == "+inff" || str == "inff" || str == "nanf")
+        return (FLOAT);
+    
+    if (str == "-inf" || str == "+inf" || str == "inf" || str == "nan")
+        return (DOUBLE);
+    
+    size_t i = 0;
+    bool hasDot = false;
+    bool hasF = false;
+    bool hasDigit = false;
+    
+    if (str[i] == '+' || str[i] == '-')
+        i++;
+    
+    while (i < str.length())
+    {
+        if (std::isdigit(str[i]))
+        {
+            hasDigit = true;
+            i++;
+        }
+        else if (str[i] == '.' && !hasDot && hasDigit)
+        {
+            hasDot = true;
+            i++;
+        }
+        else if (str[i] == 'f' && i == str.length() - 1 && hasDot)
+        {
+            hasF = true;
+            i++;
+        }
+        else
+            return (INVALID);
+    }
+    if (!hasDigit)
+        return (INVALID);
+    if (hasF && hasDot)
+        return (FLOAT);
+    else if (hasDot && !hasF)
+        return (DOUBLE);
+    else if (!hasDot && !hasF)
+        return (INT);
+    return (INVALID);
 }
 
-ScalarConverter::ScalarConverter(const ScalarConverter &copy)
+void ScalarConverter::printChar(const std::string &str, CheckType type)
 {
-    std::cout << YELLOW << "Scalar copy constructor" << RESET << std::endl;
-    *this = copy;
+    std::cout << "char = ";
+    
+    if (type == CHAR)
+    {
+        std::cout << "'" << str[0] << "'" << std::endl;
+        return ;
+    }
+    
+    if (str == "nan" || str == "nanf" || str == "+inf" || str == "-inf" || 
+        str == "inf" || str == "+inff" || str == "-inff" || str == "inff")
+    {
+        std::cout << "impossible" << std::endl;
+        return ;
+    }
+    
+    double val = std::atof(str.c_str());
+    
+    if (val < 0 || val > 127 || std::isnan(val) || std::isinf(val))
+    {
+        std::cout << "impossible" << std::endl;
+    }
+    else if (val < 32 || val > 126)
+    {
+        std::cout << "Non displayable" << std::endl;
+    }
+    else
+    {
+        std::cout << "'" << static_cast<char>(val) << "'" << std::endl;
+    }
 }
 
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy)
+void ScalarConverter::printInt(const std::string &str, CheckType type)
 {
-    std::cout << YELLOW << "Scalar assignement operator" << RESET << std::endl;
-    (void)copy;
-    return (*this);
+    std::cout << "int = ";
+    
+    if (type == CHAR)
+    {
+        std::cout << static_cast<int>(str[0]) << std::endl;
+        return ;
+    }
+    
+    if (str == "nan" || str == "nanf" || str == "+inf" || str == "-inf" || 
+        str == "inf" || str == "+inff" || str == "-inff" || str == "inff")
+    {
+        std::cout << "impossible" << std::endl;
+        return ;
+    }
+    
+    double val = std::atof(str.c_str());
+    
+    if (val < std::numeric_limits<int>::min() || 
+        val > std::numeric_limits<int>::max() ||
+        std::isnan(val) || std::isinf(val))
+    {
+        std::cout << "impossible" << std::endl;
+    }
+    else
+        std::cout << static_cast<int>(val) << std::endl;
+}
+
+void ScalarConverter::printFloat(const std::string &str, CheckType type)
+{
+    std::cout << "float = ";
+    
+    if (type == CHAR)
+    {
+        std::cout << std::fixed << std::setprecision(1);
+        std::cout << static_cast<float>(str[0]) << "f" << std::endl;
+        return ;
+    }
+    
+    float val = static_cast<float>(std::atof(str.c_str()));
+    
+    if (std::isnan(val))
+    {
+        std::cout << "nanf" << std::endl;
+    }
+    else if (std::isinf(val))
+    {
+        if (val > 0)
+            std::cout << "+inff" << std::endl;
+        else
+            std::cout << "-inff" << std::endl;
+    }
+    else
+    {
+        std::cout << std::fixed << std::setprecision(1);
+        std::cout << val << "f" << std::endl;
+    }
+}
+
+void ScalarConverter::printDouble(const std::string &str, CheckType type)
+{
+    std::cout << "double = ";
+    
+    if (type == CHAR)
+    {
+        std::cout << std::fixed << std::setprecision(1);
+        std::cout << static_cast<double>(str[0]) << std::endl;
+        return ;
+    }
+    
+    double val = std::atof(str.c_str());
+    
+    if (std::isnan(val))
+    {
+        std::cout << "nan" << std::endl;
+    }
+    else if (std::isinf(val))
+    {
+        if (val > 0)
+            std::cout << "+inf" << std::endl;
+        else
+            std::cout << "-inf" << std::endl;
+    }
+    else
+    {
+        std::cout << std::fixed << std::setprecision(1);
+        std::cout << val << std::endl;
+    }
 }
 
 void ScalarConverter::convert(const std::string &str)
 {
-    char convChar = convertChar(str);
-    //std::cout << "convChar = " << convChar << std::endl;
-
-    int convInt = convertInt(str);
-    //std::cout << "convInt = " << convInt << std::endl;
-
-    float convFloat = convertFloat(str);
-    //std::cout << "convFloat = " << convFloat << std::endl;
-
-    double convDouble = convertDouble(str);
-    //std::cout << "convDouble = " << convDouble << std::endl;
-}
-
-int ScalarConverter::checkChar(const std::string &str)
-{
-    //std::cout << PINK << "START CHECKCHAR" << RESET << std::endl;
-    //std::cout << "argv[1] = " << str << std::endl;
-
-    if (str.length() != 1)
-        return (1);
-    else if (str[0] < 32 || str[0] > 126)
-        return (2);
-    else if (std::isdigit(str[0]))
-        return (3);
-    return (0);
-}
-
-char ScalarConverter::convertChar(const std::string &str)
-{
-    int check = checkChar(str);
-    char c = str[0];
-    //std::cout << "check = " << check << std::endl;
+    CheckType type = detectType(str);
     
-    if (check == 0)
-        std::cout << GREEN << "char: '" << c << "'" << RESET << std::endl;
-    else if (check == 1)
-        std::cout << RED << "char: impossible" << RESET << std::endl;
-    else if (check == 2 || check == 3)
-        std::cout << RED << "char: Non displayable" << RESET << std::endl;
-    return (c);
-}
-
-int ScalarConverter::checkInt(const std::string &str)
-{
-    size_t i = 0;
-
-    if (str[i] == '+' || str[i] == '-')
-        i++;
-    while (i < str.length())
+    if (type == INVALID)
     {
-        if (!std::isdigit(str[i]))
-            return (1);
-        i++;
-    } 
-    return (0);
-}
-
-int  ScalarConverter::convertInt(const std::string &str)
-{
-    int check = checkInt(str);
-    int res = std::atoi(str.c_str());
+        std::cout << "Error: invalid literal" << std::endl;
+        return ;
+    }
     
-    if (check == 0)
-        std::cout << GREEN << "int: " << res << RESET << std::endl;
-    else if (check == 1)
-        std::cout << RED << "int: impossible" << std::endl;
-    return (res);
-}
-
-int ScalarConverter::checkFloat(const std::string &str)
-{
-    size_t i = 0;
-
-    if (str[i] == '+' || str[i] == '-')
-        i++;   
-    while (i < str.length())
-    {
-        if (!std::isdigit(str[i]))
-            return (1);
-        i++;
-    }
-    return (0);
-}
-
-float ScalarConverter::convertFloat(const std::string &str)
-{
-    int check = checkFloat(str);
-    float res = std::atof(str.c_str());
-
-    if (check == 0)
-        std::cout << GREEN << "float: " << res << "f" << std::endl;
-    else if (check == 1)
-    {
-        if ((check = checkChar(str)) == 0)
-            std::cout << RED << "float: impossible"<< RESET << std::endl;
-        else
-            std::cout << RED << "float: " << res << "f" << RESET << std::endl;
-    }
-    return (res);
-}
-
-int ScalarConverter::checkDouble(const std::string &str)
-{
-    size_t i = 0;
-
-    if (str[i] == '+' || str[i] == '-')
-        i++;   
-    while (i < str.length())
-    {
-        if (!std::isdigit(str[i]))
-            return (1);
-        i++;
-    }
-    return (0);
-}
-
-double ScalarConverter::convertDouble(const std::string &str)
-{
-    int check = checkDouble(str);
-    double res = std::atof(str.c_str());
-    
-    if (check == 0)
-        std::cout << GREEN << "double: " << res  << ".0" << std::endl;
-    else
-        std::cout << RED << "double: impossible" << RESET << std::endl;
-    return (res);
+    printChar(str, type);
+    printInt(str, type);
+    printFloat(str, type);
+    printDouble(str, type);
 }

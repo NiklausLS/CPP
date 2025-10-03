@@ -12,7 +12,7 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
-	$(CC) $(CLFAGS) -c $< -o $@
+	$(CC) $(FlAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
